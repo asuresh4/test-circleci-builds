@@ -34,6 +34,7 @@ jobs:
               --data '{
                 "title": "Tests failed in branch '"${CIRCLE_BRANCH}"' for commit '"${CIRCLE_SHA1}"'",
                 "body": "Link to failed job: '"${CIRCLE_BUILD_URL}"'.",
-                "labels": ["P2"]
+                "labels": ["P2"],
+                 "assignees": ["asuresh4"]
                 }'
           when: on_fail
