@@ -33,6 +33,7 @@ jobs:
               --header "content-type: application/json" \
               --data '{
                 "title": "Tests failed in branch '"${CIRCLE_BRANCH}"' for commit '"${CIRCLE_SHA1}"'",
-                "body": "Link to failed job: '"${CIRCLE_BUILD_URL}"'."
+                "body": "Link to failed job: '"${CIRCLE_BUILD_URL}"'.",
+                "labels": ["P2"]
                 }'
           when: on_fail
