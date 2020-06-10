@@ -32,7 +32,7 @@ jobs:
               --header "authorization: Bearer ${GITHUB_TOKEN}" \
               --header "content-type: application/json" \
               --data '{
-                "title": "Stability tests failed in branch '"${CIRCLE_BRANCH}"' for commit ${CIRCLE_SHA1}",
+                "title": "Tests failed in branch '"${CIRCLE_BRANCH}"' for commit '"${CIRCLE_SHA1}"'",
                 "body": "Link to failed job: '"${CIRCLE_BUILD_URL}"'."
                 }'
           when: on_fail
