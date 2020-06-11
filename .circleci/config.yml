@@ -1,7 +1,17 @@
 # Golang CircleCI 2.0 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-go/ for more details
-version: 2
+version: 2.1
+executors:
+  python38:
+    working_directory: /go/src/github.com/asuresh4/test-circleci-builds
+    docker:
+      - image: python:3.8
+
+  docker1809:
+    docker:
+      - image: docker:18.09
+
 jobs:
   build:
     docker:
@@ -38,3 +48,7 @@ jobs:
                  "assignees": ["asuresh4"]
                 }'
           when: on_fail
+      - run:
+          name: Test env
+          command: echo $CIRCLE_WORKFLOW_ID
+          when: always 
