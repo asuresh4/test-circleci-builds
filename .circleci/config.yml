@@ -15,8 +15,8 @@ executors:
 jobs:
   build:
     docker:
-      # specify the version
       - image: circleci/golang:1.9
+      - image: python:3.8
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -47,6 +47,9 @@ jobs:
                 "labels": ["P2"],
                  "assignees": ["asuresh4"]
                 }'
+      - run:
+          name: Python script
+          command: ./.circleci/scripts/github.py
           when: on_fail
       - run:
           name: Test env
